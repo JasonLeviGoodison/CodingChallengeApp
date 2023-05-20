@@ -36,4 +36,9 @@ export default StyleSheet.create({
 		// alignItems: "center",
 		margin: 20,
 	},
+
+	modalBackground: {
+		flex: 1,
+		justifyContent: "center",
+	},
 });

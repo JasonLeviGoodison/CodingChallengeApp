@@ -107,40 +107,44 @@ const CatList: React.FC = () => {
 		},
 	];
 
+	const handleAddPress = () => {
+		setModalVisible(true);
+		setCatToEdit(null);
+	};
+
 	const handleEditPress = (cat) => {
 		setModalVisible(true);
 		setCatToEdit(cat);
 	};
 
-	const handleDeletePress = (catId) => {
+	const handleDeletePress = (catId: string) => {
 		dispatch({ type: "DELETE_CAT", payload: { id: catId } });
 	};
 
-	function renderCat({ item }) {
-		if (item.id === "addButton") {
-			return (
-				<TouchableOpacity
-					style={styles.addContainer}
-					onPress={() => {
-						setModalVisible(true);
-						setCatToEdit(null);
-					}}
-				>
-					<View style={styles.addRowContainer}>
-						<View style={styles.addInfoContainer}>
-							<Icon
-								name="add-circle-outline"
-								size={50}
-								color="#3a38c0"
-							/>
-							<Text style={styles.name}>{"Add a cat"}</Text>
-						</View>
-					</View>
-				</TouchableOpacity>
-			);
-		}
-
+	const AddButton = () => {
 		return (
+			<TouchableOpacity
+				style={styles.addContainer}
+				onPress={handleAddPress}
+			>
+				<View style={styles.addRowContainer}>
+					<View style={styles.addInfoContainer}>
+						<Icon
+							name="add-circle-outline"
+							size={50}
+							color="#3a38c0"
+						/>
+						<Text style={styles.name}>{"Add a cat"}</Text>
+					</View>
+				</View>
+			</TouchableOpacity>
+		);
+	};
+
+	function renderCat({ item }) {
+		return item.id === "addButton" ? (
+			<AddButton />
+		) : (
 			<CatCard
 				cat={item}
 				onEditPress={handleEditPress}
@@ -158,12 +162,27 @@ const CatList: React.FC = () => {
 				scrollEnabled={false}
 			/>
 			<Modal visible={modalVisible} animationType="slide" transparent>
-				<View style={styles.centeredView}>
-					<CatForm
-						catToEdit={catToEdit}
-						closeForm={() => setModalVisible(false)}
-					/>
-				</View>
+				{/* <TouchableOpacity
+					// style={styles.modalBackground}
+					// activeOpacity={1}
+					onPress={() => setModalVisible(false)}
+				> */}
+				<TouchableOpacity
+					activeOpacity={1}
+					onPress={() => setModalVisible(false)}
+					style={styles.modalBackground}
+				>
+					<KeyboardAvoidingView
+						behavior="padding"
+						style={styles.centeredView}
+					>
+						<CatForm
+							catToEdit={catToEdit}
+							closeForm={() => setModalVisible(false)}
+						/>
+					</KeyboardAvoidingView>
+				</TouchableOpacity>
+				{/* </TouchableOpacity> */}
 			</Modal>
 		</View>
 	);

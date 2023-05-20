@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { Button, TextInput, View, StyleSheet, Text, Alert } from "react-native";
+import { Button, TextInput, View, Text, Alert } from "react-native";
 import { CatContext, Cat } from "../context/CatContext";
 import styles from "../styles/CatFormStyles";
 
@@ -14,8 +14,8 @@ const CatForm: React.FC<CatFormProps> = ({ catToEdit, closeForm }) => {
 	const [breed, setBreed] = useState("");
 	const [description, setDescription] = useState("");
 
-	const breedInputRef = useRef(null);
-	const descriptionInputRef = useRef(null);
+	const breedInputRef = useRef<TextInput>(null);
+	const descriptionInputRef = useRef<TextInput>(null);
 
 	useEffect(() => {
 		if (catToEdit) {
