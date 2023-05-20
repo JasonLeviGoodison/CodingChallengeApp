@@ -26,7 +26,6 @@ const CatCard: React.FC<CatCardProps> = ({
 		<TouchableOpacity style={styles.container} onPress={handlePress}>
 			<View style={styles.rowContainer}>
 				<View style={styles.infoContainer}>
-					{/* Use your own cat vector image */}
 					<Icon name="logo-octocat" size={50} />
 					<Text numberOfLines={1} style={styles.name}>
 						{cat.name}
@@ -47,6 +46,7 @@ const CatCard: React.FC<CatCardProps> = ({
 							size={20}
 							marginLeft={10}
 							color="red"
+							label="Delete"
 						/>
 					</TouchableOpacity>
 				</View>

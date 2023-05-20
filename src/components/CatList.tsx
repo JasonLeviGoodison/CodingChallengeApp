@@ -162,11 +162,6 @@ const CatList: React.FC = () => {
 				scrollEnabled={false}
 			/>
 			<Modal visible={modalVisible} animationType="slide" transparent>
-				{/* <TouchableOpacity
-					// style={styles.modalBackground}
-					// activeOpacity={1}
-					onPress={() => setModalVisible(false)}
-				> */}
 				<TouchableOpacity
 					activeOpacity={1}
 					onPress={() => setModalVisible(false)}
@@ -182,7 +177,6 @@ const CatList: React.FC = () => {
 						/>
 					</KeyboardAvoidingView>
 				</TouchableOpacity>
-				{/* </TouchableOpacity> */}
 			</Modal>
 		</View>
 	);
