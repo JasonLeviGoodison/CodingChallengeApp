@@ -1,7 +1,8 @@
 import React from "react";
 import { CatProvider } from "./src/context/CatContext";
 import CatList from "./src/components/CatList";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView } from "react-native";
+import styles from "./src/styles/AppStyles";
 
 const App = () => {
 	return (
@@ -25,25 +26,5 @@ const App = () => {
 		</View>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#e8eaed",
-	},
-	textWrapper: {
-		paddingTop: 80,
-		paddingHorizontal: 20,
-	},
-	sectionTitle: {
-		fontSize: 24,
-		fontWeight: "bold",
-		color: "#3a38c0",
-	},
-	items: {
-		marginTop: 30,
-		marginBottom: 30,
-	},
-});
 
 export default App;
