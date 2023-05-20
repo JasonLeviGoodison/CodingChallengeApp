@@ -6,6 +6,7 @@ import {
 	Modal,
 	StyleSheet,
 	Text,
+	KeyboardAvoidingView,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { CatContext } from "../context/CatContext";
@@ -54,11 +55,60 @@ const CatList: React.FC = () => {
 			description:
 				"Bella is a gentle and affectionate cat. She loves to be held and cuddled.",
 		},
+		{
+			id: "6",
+			name: "Max",
+			breed: "Persian",
+			description:
+				"Max is a relaxed and easy-going cat. He enjoys the finer things in life like gourmet food and soft blankets.",
+		},
+		{
+			id: "7",
+			name: "Lucy",
+			breed: "Scottish Fold",
+			description:
+				"Lucy is a curious and playful cat. She enjoys exploring her surroundings and chasing laser pointers.",
+		},
+		{
+			id: "8",
+			name: "Charlie",
+			breed: "Siberian",
+			description:
+				"Charlie is an adventurous and independent cat. He enjoys spending time outside and climbing trees.",
+		},
+		{
+			id: "9",
+			name: "Daisy",
+			breed: "Sphynx",
+			description:
+				"Daisy is a friendly and sociable cat. Despite her lack of fur, she enjoys cuddling up to her human companions for warmth.",
+		},
+		{
+			id: "10",
+			name: "Oliver",
+			breed: "Abyssinian",
+			description:
+				"Oliver is an active and intelligent cat. He enjoys solving puzzles and playing fetch with small balls.",
+		},
+		{
+			id: "11",
+			name: "Chloe",
+			breed: "Russian Blue",
+			description:
+				"Chloe is a quiet and gentle cat. She enjoys spending her days napping in the sun and getting brushed by her humans.",
+		},
+		{
+			id: "12",
+			name: "Oscar",
+			breed: "Norwegian Forest Cat",
+			description:
+				"Oscar is a large and friendly cat. He enjoys play wrestling and spending time with his family.",
+		},
 	];
 
 	const handleEditPress = (cat) => {
-		setCatToEdit(cat);
 		setModalVisible(true);
+		setCatToEdit(cat);
 	};
 
 	const handleDeletePress = (catId) => {
@@ -67,11 +117,13 @@ const CatList: React.FC = () => {
 
 	function renderCat({ item }) {
 		if (item.id === "addButton") {
-			console.log("add button");
 			return (
 				<TouchableOpacity
 					style={styles.addContainer}
-					onPress={() => setModalVisible(true)}
+					onPress={() => {
+						setModalVisible(true);
+						setCatToEdit(null);
+					}}
 				>
 					<View style={styles.addRowContainer}>
 						<View style={styles.addInfoContainer}>
@@ -99,15 +151,18 @@ const CatList: React.FC = () => {
 	return (
 		<View>
 			<FlatList
-				data={[...catsData, { id: "addButton" }]}
+				data={[...cats, { id: "addButton" }]}
 				renderItem={renderCat}
 				keyExtractor={(item) => item.id}
+				scrollEnabled={false}
 			/>
 			<Modal visible={modalVisible} animationType="slide" transparent>
-				<CatForm
-					catToEdit={catToEdit}
-					closeForm={() => setModalVisible(false)}
-				/>
+				<View style={styles.centeredView}>
+					<CatForm
+						catToEdit={catToEdit}
+						closeForm={() => setModalVisible(false)}
+					/>
+				</View>
 			</Modal>
 		</View>
 	);
@@ -136,12 +191,18 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	name: {
-		fontSize: 20,
+		fontSize: 16,
 		marginLeft: 10,
 		fontWeight: "bold",
 	},
 	buttonsContainer: {
 		flexDirection: "row",
+	},
+	centeredView: {
+		flex: 1,
+		justifyContent: "center",
+		// alignItems: "center",
+		margin: 20,
 	},
 });
 

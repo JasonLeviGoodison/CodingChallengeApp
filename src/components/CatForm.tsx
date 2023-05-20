@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Button, TextInput, View, StyleSheet } from "react-native";
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { Button, TextInput, View, StyleSheet, Text, Alert } from "react-native";
 import { CatContext, Cat } from "../context/CatContext";
 
 interface CatFormProps {
@@ -13,11 +13,18 @@ const CatForm: React.FC<CatFormProps> = ({ catToEdit, closeForm }) => {
 	const [breed, setBreed] = useState("");
 	const [description, setDescription] = useState("");
 
+	const breedInputRef = useRef(null);
+	const descriptionInputRef = useRef(null);
+
 	useEffect(() => {
 		if (catToEdit) {
 			setName(catToEdit.name);
 			setBreed(catToEdit.breed);
 			setDescription(catToEdit.description);
+		} else {
+			setName("");
+			setBreed("");
+			setDescription("");
 		}
 	}, [catToEdit]);
 
@@ -26,8 +33,10 @@ const CatForm: React.FC<CatFormProps> = ({ catToEdit, closeForm }) => {
 			name.trim() === "" ||
 			breed.trim() === "" ||
 			description.trim() === ""
-		)
+		) {
+			Alert.alert("Error", "Please fill out all fields");
 			return;
+		}
 
 		if (catToEdit) {
 			dispatch({
@@ -46,27 +55,43 @@ const CatForm: React.FC<CatFormProps> = ({ catToEdit, closeForm }) => {
 
 	return (
 		<View style={styles.container}>
+			<Text style={styles.sectionTitle}>Add a cat</Text>
+
 			<TextInput
 				style={styles.input}
 				value={name}
 				onChangeText={setName}
 				placeholder="Name"
+				onSubmitEditing={() => breedInputRef.current.focus()}
+				returnKeyType="next"
+				blurOnSubmit={false}
 			/>
 			<TextInput
+				ref={breedInputRef}
 				style={styles.input}
 				value={breed}
 				onChangeText={setBreed}
 				placeholder="Breed"
+				onSubmitEditing={() => descriptionInputRef.current.focus()}
+				returnKeyType="next"
+				blurOnSubmit={false}
 			/>
 			<TextInput
+				ref={descriptionInputRef}
 				style={styles.input}
 				value={description}
 				onChangeText={setDescription}
 				placeholder="Description"
+				onSubmitEditing={handleSubmit}
+				returnKeyType="done"
 			/>
 			<View style={styles.buttons}>
-				<Button title="Cancel" onPress={closeForm} />
-				<Button title="Submit" onPress={handleSubmit} />
+				<Button color={"#3a38c0"} title="Cancel" onPress={closeForm} />
+				<Button
+					color={"#3a38c0"}
+					title="Submit"
+					onPress={handleSubmit}
+				/>
 			</View>
 		</View>
 	);
@@ -77,18 +102,34 @@ const styles = StyleSheet.create({
 		borderRadius: 15,
 		backgroundColor: "white",
 		padding: 20,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 4,
+		elevation: 5,
 	},
 	input: {
-		height: 40,
-		borderColor: "gray",
+		height: 50,
+		fontSize: 16,
+		borderColor: "#dcdcdc",
 		borderWidth: 1,
-		borderRadius: 5,
-		marginBottom: 10,
-		padding: 5,
+		borderRadius: 10,
+		marginBottom: 15,
+		paddingHorizontal: 10,
+		backgroundColor: "#f8f8f8",
 	},
 	buttons: {
 		flexDirection: "row",
 		justifyContent: "space-between",
+	},
+	sectionTitle: {
+		fontSize: 24,
+		fontWeight: "bold",
+		color: "#3a38c0",
+		marginBottom: 20,
 	},
 });
 

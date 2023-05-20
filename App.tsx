@@ -2,7 +2,6 @@ import React from "react";
 import { CatProvider } from "./src/context/CatContext";
 import CatList from "./src/components/CatList";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import CatCard from "./src/components/CatCard";
 
 const App = () => {
 	return (
