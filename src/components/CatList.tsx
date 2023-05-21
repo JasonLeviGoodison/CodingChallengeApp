@@ -56,55 +56,55 @@ const CatList: React.FC = () => {
 			description:
 				"Bella is a gentle and affectionate cat. She loves to be held and cuddled.",
 		},
-		{
-			id: "6",
-			name: "Max",
-			breed: "Persian",
-			description:
-				"Max is a relaxed and easy-going cat. He enjoys the finer things in life like gourmet food and soft blankets.",
-		},
-		{
-			id: "7",
-			name: "Lucy",
-			breed: "Scottish Fold",
-			description:
-				"Lucy is a curious and playful cat. She enjoys exploring her surroundings and chasing laser pointers.",
-		},
-		{
-			id: "8",
-			name: "Charlie",
-			breed: "Siberian",
-			description:
-				"Charlie is an adventurous and independent cat. He enjoys spending time outside and climbing trees.",
-		},
-		{
-			id: "9",
-			name: "Daisy",
-			breed: "Sphynx",
-			description:
-				"Daisy is a friendly and sociable cat. Despite her lack of fur, she enjoys cuddling up to her human companions for warmth.",
-		},
-		{
-			id: "10",
-			name: "Oliver",
-			breed: "Abyssinian",
-			description:
-				"Oliver is an active and intelligent cat. He enjoys solving puzzles and playing fetch with small balls.",
-		},
-		{
-			id: "11",
-			name: "Chloe",
-			breed: "Russian Blue",
-			description:
-				"Chloe is a quiet and gentle cat. She enjoys spending her days napping in the sun and getting brushed by her humans.",
-		},
-		{
-			id: "12",
-			name: "Oscar",
-			breed: "Norwegian Forest Cat",
-			description:
-				"Oscar is a large and friendly cat. He enjoys play wrestling and spending time with his family.",
-		},
+		// {
+		// 	id: "6",
+		// 	name: "Max",
+		// 	breed: "Persian",
+		// 	description:
+		// 		"Max is a relaxed and easy-going cat. He enjoys the finer things in life like gourmet food and soft blankets.",
+		// },
+		// {
+		// 	id: "7",
+		// 	name: "Lucy",
+		// 	breed: "Scottish Fold",
+		// 	description:
+		// 		"Lucy is a curious and playful cat. She enjoys exploring her surroundings and chasing laser pointers.",
+		// },
+		// {
+		// 	id: "8",
+		// 	name: "Charlie",
+		// 	breed: "Siberian",
+		// 	description:
+		// 		"Charlie is an adventurous and independent cat. He enjoys spending time outside and climbing trees.",
+		// },
+		// {
+		// 	id: "9",
+		// 	name: "Daisy",
+		// 	breed: "Sphynx",
+		// 	description:
+		// 		"Daisy is a friendly and sociable cat. Despite her lack of fur, she enjoys cuddling up to her human companions for warmth.",
+		// },
+		// {
+		// 	id: "10",
+		// 	name: "Oliver",
+		// 	breed: "Abyssinian",
+		// 	description:
+		// 		"Oliver is an active and intelligent cat. He enjoys solving puzzles and playing fetch with small balls.",
+		// },
+		// {
+		// 	id: "11",
+		// 	name: "Chloe",
+		// 	breed: "Russian Blue",
+		// 	description:
+		// 		"Chloe is a quiet and gentle cat. She enjoys spending her days napping in the sun and getting brushed by her humans.",
+		// },
+		// {
+		// 	id: "12",
+		// 	name: "Oscar",
+		// 	breed: "Norwegian Forest Cat",
+		// 	description:
+		// 		"Oscar is a large and friendly cat. He enjoys play wrestling and spending time with his family.",
+		// },
 	];
 
 	const handleAddPress = () => {

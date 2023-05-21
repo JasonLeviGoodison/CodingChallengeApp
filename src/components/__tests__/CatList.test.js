@@ -2,6 +2,12 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 import CatList from "../CatList";
 import { CatProvider } from "../../context/CatContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+jest.mock("@react-native-async-storage/async-storage", () => ({
+	getItem: jest.fn(() => Promise.resolve(null)),
+	setItem: jest.fn(() => Promise.resolve(null)),
+}));
 
 test("renders all cats", () => {
 	// Mock the cats data

@@ -1,4 +1,6 @@
 {
-  "compilerOptions": {},
-  "extends": "expo/tsconfig.base"
+	"compilerOptions": {
+		"lib": ["dom", "es6"]
+	},
+	"extends": "expo/tsconfig.base"
 }

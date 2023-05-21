@@ -9,6 +9,12 @@ import "@testing-library/jest-dom";
 
 import CatList from "../CatList";
 import { CatProvider } from "../../context/CatContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+jest.mock("@react-native-async-storage/async-storage", () => ({
+	getItem: jest.fn(() => Promise.resolve(null)),
+	setItem: jest.fn(() => Promise.resolve(null)),
+}));
 
 test("add a cat", async () => {
 	render(
