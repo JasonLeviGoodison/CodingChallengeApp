@@ -2,6 +2,42 @@
 
 This is a simple cat pokedex like app, that shows you a list of cats with their name, breed and a description. The app consists of a simple UI to add cats, edit and delete them. It also utilizes React Context for storing state's and uses AsyncStorage to have a local storage of all the cats.
 
+## Instructions to build and run
+
+1. Clone the repo:
+```
+git clone https://github.com/HudZah/CodingChallengeApp
+```
+
+2. Navigate to the cloned directory:
+```
+cd CodingChallengeApp
+```
+
+3. Install the project dependencies:
+```
+npm install
+```
+
+4. Run tests and ensure they pass:
+```
+npm run test
+```
+
+5. Run on your phone:
+```
+npx expo start
+```
+
+## Screenshot of running project
+
+<p float="left">
+  <img src="https://github.com/HudZah/CodingChallengeApp/assets/56107325/4993691b-362a-40bf-a2ad-356dbc625deb" width="400" />
+  <img src="https://github.com/HudZah/CodingChallengeApp/assets/56107325/2a11e25e-6f7f-4b5a-889b-4618a1b3c51d" width="400" /> 
+</p>
+
+
+
 ### Build your app
 
 You have 1 week to complete the challenge.
