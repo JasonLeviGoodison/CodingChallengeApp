@@ -14,17 +14,22 @@ git clone https://github.com/HudZah/CodingChallengeApp
 cd CodingChallengeApp
 ```
 
-3. Install the project dependencies:
+3. Checkout into the catdex branch
+```
+git checkout catdex
+```
+
+4. Install the project dependencies:
 ```
 npm install
 ```
 
-4. Run tests and ensure they pass:
+5. Run tests and ensure they pass:
 ```
 npm run test
 ```
 
-5. Run on your phone:
+6. Run on your phone:
 ```
 npx expo start
 ```
