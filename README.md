@@ -1,8 +1,8 @@
 ## Cat Profiler
 
-Cat Profiler is an app that allows you to add and list cats with their name, breed, characteristis, description and weight. It features a minimalist UI and utilizes PullState, a very lightweight and highly optimized state managment library. 
+Cat Profiler is an app that allows you to add and list cats with their name, breed, characteristis, description and weight. It features a minimalist UI and utilizes [PullState](https://github.com/lostpebble/pullstate), a very lightweight and highly optimized state managment library. 
 
-To run the code, simply navigate to clone repository and run `npm install` followed by `npx run expo`.
+To run the code, simply navigate to clone repository and run `npm install` followed by `npx expo start`.
 
 ## Instructions
 
