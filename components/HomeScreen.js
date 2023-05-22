@@ -9,8 +9,7 @@ export default function HomeScreen({navigation}) {
     const allCats = CatStore.useState(s => s.cats)
     console.log(allCats)
     return(
-      <View>
-      <ScrollView style = {{marginTop: 20}}>
+      <ScrollView style = {{marginTop: 20}} scrollEnabled={true}>
         {allCats.map((cat, i) => (
           <TouchableOpacity 
             onPress = {() => navigation.navigate("Display Card", {
@@ -22,17 +21,18 @@ export default function HomeScreen({navigation}) {
           <Card key={i}
           >
             <Text style = {catCardStyles.titleText}>{cat.name}</Text>
-            <Text style = {catCardStyles.baseText}>{cat.breed}</Text>
-            <Text style = {catCardStyles.baseText}>{cat.description}</Text>
+            <Text style = {catCardStyles.baseText}>Breed: {cat.breed}</Text>
+            <Text style = {catCardStyles.baseText}>Description: {cat.description}</Text>
           </Card>
           </TouchableOpacity>
         ))}
-      </ScrollView>
-        <Button title="add cat" onPress={() => {
-          navigation.navigate('Create Cat')
+                <Button title="add cat" onPress={() => {
+          navigation.navigate('Create Cat', {
+            initialVal: {name: "", breed: "", description: "", characteristics: ""}
+          })
         }}>
       </Button>
-      </View>
+      </ScrollView>
     );
   };
 
