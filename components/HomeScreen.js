@@ -7,7 +7,7 @@ import { CatStore } from '../CatStore';
 export default function HomeScreen({navigation}) {
     const isEmptyCatArray = CatStore.useState(s => s.empty)
     const allCats = CatStore.useState(s => s.cats)
-    console.log(allCats)
+    
     return(
       <ScrollView style = {{marginTop: 20}} scrollEnabled={true}>
         {allCats.length == 0 ? <Text style={{textAlign:'center'}}>No cats yet! Start by adding one</Text> : undefined}

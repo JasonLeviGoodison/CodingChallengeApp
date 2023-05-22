@@ -45,7 +45,6 @@ export default function DisplayCard({route, navigation}) {
                     CatStore.update(s => {
                         s.cats.splice(s.cats.length-1, 1)
                         navigation.navigate('Home')
-                        console.log(s.cats)
                         Toast.show("Cat deleted!")
                     })
                 }}></Button>
