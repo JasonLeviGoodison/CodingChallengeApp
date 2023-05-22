@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, View, ScrollView } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Card from "./components/Card";
-import Create from "./pages/createCat";
+import Create from "./pages/CatForm";
 import { CatStore } from './CatStore';
 import HomeScreen from './components/HomeScreen';
 import DisplayCard from './components/DisplayCard';
@@ -23,12 +23,12 @@ export default function App() {
         <Stack.Screen
           name="Create Cat"
           component={Create}
-          options={{title: 'Cat!'}}
+          options={{title: 'Create or Update your Cat'}}
         />
         <Stack.Screen
           name="Display Card"
           component={DisplayCard}
-          options={{title: 'Welcome!'}}
+          options={{title: 'Cat Information'}}
         />
     </Stack.Navigator>
     </NavigationContainer>

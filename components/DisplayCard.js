@@ -17,9 +17,7 @@ export default function DisplayCard({route, navigation}) {
                     <Text style={{color:"grey"}}>Breed:  </Text>
                     <Text>{data.breed}</Text>
                     <Text style={{color:"grey"}}>  Weight:  </Text>
-                    <Text>18 lbs</Text>
-                    <Text style={{color:"grey"}}>  Date of Birth:  </Text>
-                    <Text>REPLACE ME</Text>
+                    <Text>{data.weight}</Text>
                 </View>
             </Card>
 
@@ -39,7 +37,7 @@ export default function DisplayCard({route, navigation}) {
             <View style={{flexDirection:"row", justifyContent: "space-between", marginLeft: 30, marginRight: 30}}>
                 <Button title="edit" onPress = {() => {
                     navigation.navigate('Create Cat', {
-                        initialVal : {name: data.name, description: data.description, id: data.id, characteristics: data.characteristics, breed: data.breed}
+                        initialVal : {name: data.name, description: data.description, id: data.id, characteristics: data.characteristics, breed: data.breed, weight: data.breed}
                     })
                 }}>
                 </Button>
