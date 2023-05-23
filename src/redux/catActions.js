@@ -18,4 +18,3 @@ export const editCat = (cat) => {
         payload: cat
     };
 };
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, Button } from 'react-native';
 
 import CatCard from '../components/CatCard';
 
@@ -14,7 +14,7 @@ export default function CatListScreen({ navigation }) {
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item }) => <CatCard cat={item} navigation={navigation} />}
             />
+            <Button title="Add Cat" onPress={() => navigation.navigate('AddCat')} />
         </View>
     );
 }
-
