@@ -44,7 +44,7 @@ export default function DisplayCard({route, navigation}) {
                 <Button title="delete" onPress = {() => {
                     CatStore.update(s => {
                         s.cats.splice(s.cats.length-1, 1)
-                        navigation.navigate('Home')
+                        navigation.navigate('Cat Profiler')
                         Toast.show("Cat deleted!")
                     })
                 }}></Button>

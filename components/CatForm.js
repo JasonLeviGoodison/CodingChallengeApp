@@ -73,14 +73,14 @@ export default function CatForm({route, navigation}) {
                     CatStore.update(s => {
                         s.cats[initialVal.id] = {name: name, breed: breed, description: description, characteristics: characteristics, id: initialVal.id, weight: weight}
                     })
-                    navigation.navigate('Home')
+                    navigation.navigate('Cat Profiler')
                     Toast.show("Cat updated successfully!")
                 }}>
                 </Button>
              : <Button title = "create" onPress={() => {
                     CatStore.update(s => {
                         s.cats.push({name: name, breed: breed, description: description, characteristics: characteristics, id: s.cats.length, weight: weight})
-                        navigation.navigate('Home')
+                        navigation.navigate('Cat Profiler')
                         Toast.show("Cat created successfully!")
                     })
                 }}></Button>
