@@ -1,12 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, ScrollView } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Card from "./components/Card";
+import CatForm from "./components/CatForm";
+import { CatStore } from './CatStore';
+import HomeScreen from './components/HomeScreen';
+import DisplayCard from './components/DisplayCard';
+import { RootSiblingParent } from 'react-native-root-siblings';
+
+const Stack = createNativeStackNavigator();
+
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <RootSiblingParent>
+    <NavigationContainer>
+    <Stack.Navigator>
+        <Stack.Screen name="Cat Profiler" component={HomeScreen} />
+        <Stack.Screen
+          name="Create Cat"
+          component={CatForm}
+          options={{title: 'Create or Update your Cat'}}
+        />
+        <Stack.Screen
+          name="Display Card"
+          component={DisplayCard}
+          options={{title: 'Cat Information'}}
+        />
+    </Stack.Navigator>
+    </NavigationContainer>
+    </RootSiblingParent>
   );
 }
 
@@ -16,5 +42,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginStart: 20,
+    marginRight: 20,
+    marginLeft: 20,
   },
 });
