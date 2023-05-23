@@ -4,7 +4,7 @@ import { View, Text, FlatList, Button } from 'react-native';
 
 import CatCard from '../components/CatCard';
 
-export default function CatListScreen({ navigation }) {
+export default function CatListScreen({ navigation }) { // this is the screen to view the list of cats
     const cats = useSelector(state => state.cats);
 
     return (

@@ -3,7 +3,7 @@ import { View, Text, Button } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { removeCat } from '../redux/catActions';
 
-export default function CatDetailScreen({ route, navigation }) {
+export default function CatDetailScreen({ route, navigation }) { // this is the screen to view a cat's details
     const { cat } = route.params;
     const dispatch = useDispatch();
 

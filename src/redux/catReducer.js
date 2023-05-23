@@ -2,8 +2,8 @@ const initialState = {
     cats: []
 };
 
-export default function catReducer(state = initialState, action) {
-    switch (action.type) {
+export default function catReducer(state = initialState, action) { // this is the reducer for the cats 
+    switch (action.type) { // the reducer takes in the current state and an action and returns a new state
         case 'ADD_CAT':
             return {...state, cats: [...state.cats, action.payload]};
         case 'REMOVE_CAT':
