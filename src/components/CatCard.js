@@ -1,13 +1,43 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function CatCard({ cat, navigation }) { // this is the component to display a cat's details
+const CatCard = ({ cat }) => {
+    const navigation = useNavigation();
+
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('CatDetailScreen', { cat })}>
-            <View>
-                <Text>{cat.name}</Text> 
-                <Text>{cat.breed}</Text>
-            </View>
+        <TouchableOpacity
+            style={styles.container}
+            onPress={() => navigation.navigate('CatDetailScreen', { catId: cat.id })}
+        >
+            <Text style={styles.title}>{cat.name}</Text>
+            {cat.image && <Image source={{ uri: cat.image }} style={styles.image} />}
+            <Text style={styles.text}>{cat.breed}</Text>
         </TouchableOpacity>
     );
-}// touch a cat to view its details || touch the add cat button to add a cat to the list || touch the delete cat button to delete a cat from the list
+};
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#ffab40',
+        padding: 10,
+        marginVertical: 5,
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    text: {
+        fontSize: 16,
+    },
+    image: {
+        width: '100%',
+        height: 200,
+        borderRadius: 10,
+        marginVertical: 10,
+    }
+});
+
+export default CatCard;
