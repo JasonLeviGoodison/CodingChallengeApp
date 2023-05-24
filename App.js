@@ -6,18 +6,40 @@ import { TouchableOpacity } from 'react-native';
 import Intro from './Intro';
 
 export default function App() {
-  let res;
-  const findCat = async () => {
-     res = await AsyncStorage.getItem('cat') 
-    console.log(res);
-  };
+  const INITIAL_CAT = []
+  const [cats, setCats] = useState(INITIAL_CAT);
+
+  // const updateCats = async (temp) => {
+  //   await AsyncStorage.setItem('cat', JSON.stringify(temp))
+  //   setCats(temp);
+  // }
+  // const readData = async () => {
+  //   try {
+  //     // console.log("HIIIII")
+  //     const value = await AsyncStorage.getItem('cat');
+  
+  //     if (value !== null) {
+  //       setCats(value);
+  //       // console.log(value);
+  //     }
+      
+  //   } catch (e) {
+  //     // console.log("failedddd")
+  //     alert('Failed to fetch the input from storage');
+  //   }
+  // };
 
   useEffect(() => {
-    findCat();
+    const fetchTasks = async () =>{
+      const saved = await AsyncStorage.getItem('cat');
+      if(saved != null) setCats(JSON.parse(saved));
+    }
+    fetchTasks();
   }, []);
   
-  return (
-    <Intro/>
+  return(
+    
+    <Intro cats={cats} setCats={setCats} />
     
   );
 }
