@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
       List of Your Cats <FontAwesome5 name="cat" size={24} color="black" />
       </Text>
       </View>
-        
+        <ScrollView>
       {cats.map((cat) => {
         
         
@@ -244,6 +244,7 @@ const styles = StyleSheet.create({
         <MaterialIcons name="delete" size={35} paddingLeft={"45%"}></MaterialIcons>
     </TouchableOpacity>
 }
+</ScrollView>
     </View>
     
 
