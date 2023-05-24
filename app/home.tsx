@@ -1,96 +1,72 @@
-import { useState } from 'react';
-import { SafeAreaView, ScrollView, View, Text, StyleSheet, Platform, StatusBar, Dimensions, Image } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
-
-const PHOTOS = Array.from({ length: 25 }).map((_, i) => `https://unsplash.it/300/300/?random&__id=${i}`);
-// const screenWidth = Dimensions.get('window').width;
-// const gutterSpace = 10;
-// const marginHorizontal = 20;
-// const eachWidth = (screenWidth - (gutterSpace + marginHorizontal)) / 3;
+import { useContext } from 'react';
+import { SafeAreaView, ScrollView, View } from 'react-native';
+import { Stack } from 'expo-router';
+import { Text, SegmentedButtons } from 'react-native-paper';
+import styles from './homeStyle';
+import CatsContext from '../hooks/catsContext/CatsContext';
+import SortContext from '../hooks/sortContext/SortContext';
+import CatOverview from '../components/catOverview/CatOverview';
+import { compareName, compareBreed, compareAgeAsc, compareAgeDesc } from '../utils/utils';
 
 const Home = () => {
-  const router = useRouter();
-  // const [searchTerm, setSearchTerm] = useState('');
-
-  console.log(PHOTOS);
+  const { cats, setCats } = useContext(CatsContext);
+  const { property, setProperty } = useContext(SortContext);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeAreaView}>
+      <Stack.Screen options={{ title: 'Cats' }} />
       <ScrollView>
-        <View style={styles.grid}>
-          {PHOTOS.map((uri) => (
-            <View key={uri} style={styles.item}>
-              <Image source={{ uri }} style={styles.photo} accessibilityIgnoresInvertColors />
-              <Text>Cat name</Text>
-            </View>
-          ))}
-        </View>
+        <SegmentedButtons
+          value={property}
+          onValueChange={setProperty}
+          buttons={[
+            {
+              value: 'name',
+              label: 'Name',
+              onPress(event) {
+                setCats([...cats].sort(compareName));
+              },
+            },
+            {
+              value: 'breed',
+              label: 'Breed',
+              onPress(event) {
+                setCats([...cats].sort(compareBreed));
+              },
+            },
+            {
+              value: 'age asc',
+              label: 'Age \u2191',
+              onPress(event) {
+                setCats([...cats].sort(compareAgeAsc));
+              },
+            },
+            {
+              value: 'age desc',
+              label: 'Age \u2193',
+              onPress(event) {
+                setCats([...cats].sort(compareAgeDesc));
+              },
+            },
+          ]}
+          style={styles.segmentedButtons}
+        ></SegmentedButtons>
+        {cats.length !== 0 ? (
+          <View style={styles.grid}>
+            {cats.map((cat) => (
+              <CatOverview key={cat.id} {...cat}></CatOverview>
+            ))}
+          </View>
+        ) : (
+          <View style={styles.grid}>
+            <Text variant="labelLarge" style={{ color: 'white' }}>
+              Add your cats to see them here!
+            </Text>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  ...Platform.select({
-    web: {
-      grid: {
-        display: 'grid' as 'none',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-        gridRowGap: '8px',
-        gridColumnGap: '8px',
-        padding: 8,
-      },
-      item: {
-        width: '100%',
-        height: 150,
-      },
-    },
-    // portrait
-    default: {
-      grid: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        padding: '1%',
-        justifyContent: 'space-evenly',
-        backgroundColor: '#3B3838',
-      },
-      item: {
-        height: Dimensions.get('window').width / 2,
-        width: '50%',
-        padding: '1%',
-      },
-      // Landscape start of implementation
-      // default: {
-      //   grid: {
-      //     flexDirection: 'row',
-      //     flexWrap: 'wrap',
-      //     padding: '1%',
-      //     justifyContent: 'space-evenly',
-      //     backgroundColor: 'lightyellow',
-      //   },
-      //   item: {
-      //     height: Dimensions.get('window').width / 4.5,
-      //     width: Dimensions.get('window').width / 4.5,
-      //     // width: eachWidth,
-      //     // margin: marginHorizontal,
-      //     padding: '1%',
-      //   },
-      container: {
-        flex: 1,
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-      },
-    },
-  }),
-  photo: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
-  fab: {
-    alignSelf: 'center',
-    position: 'absolute',
-    bottom: 0,
-    margin: 16,
-  },
-});
 
 export default Home;

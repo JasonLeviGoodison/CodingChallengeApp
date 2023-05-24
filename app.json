@@ -4,6 +4,7 @@
     "name": "CodingChallengeApp",
     "slug": "CodingChallengeApp",
     "version": "1.0.0",
+    "orientation": "portrait",
     "icon": "./assets/CatTraxIcon.png",
     "userInterfaceStyle": "light",
     "splash": {
