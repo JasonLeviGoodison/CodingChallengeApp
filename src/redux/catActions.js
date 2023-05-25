@@ -18,3 +18,5 @@ export const editCat = (cat) => { // this is the action creator for editing a ca
         payload: cat
     };
 };
+
+

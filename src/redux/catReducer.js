@@ -9,7 +9,12 @@ export default function catReducer(state = initialState, action) { // this is th
         case 'REMOVE_CAT':
             return {...state, cats: state.cats.filter(cat => cat.id !== action.payload)};
         case 'EDIT_CAT':
-            return {...state, cats: state.cats.map(cat => cat.id === action.payload.id ? action.payload : cat)};
+            return {
+                ...state,
+                cats: state.cats.map(cat => 
+                    cat.id === action.payload.id ? action.payload : cat
+                )
+            }
         default:
             return state;
     }

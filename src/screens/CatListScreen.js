@@ -10,6 +10,10 @@ const CatListScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.buttonContainer}>
+                <Button title='Home' onPress={() => navigation.navigate('CatListScreen')} />
+            </View>
+
             <FlatList
                 data={cats}
                 keyExtractor={item => item.id.toString()}
@@ -20,22 +24,29 @@ const CatListScreen = ({ navigation }) => {
                     </View>
                 )}
             />
-            <Button title='Add Cat' onPress={() => navigation.navigate('AddCat')} />
+            <View style={styles.buttonContainer}>
+                <Button title='Add Cat' onPress={() => navigation.navigate('AddCatScreen')} />
+            </View>
         </View>
     );
+
 };
 
-const styles = StyleSheet.create({ // 'add cat' is at bottom because of justifyContent: 'center', alignItems: 'center',
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
         backgroundColor: '#c0def3',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
+    buttonContainer: {
+        backgroundColor: 'white',
+        padding: 20,
+        borderRadius: 20,
+        marginBottom: 20,
+        width: '80%',
+        alignItems: 'center',
+        alignSelf: 'center',
+    }
 });
 
 export default CatListScreen;
-
-
-

@@ -1,6 +1,11 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Button } from 'react-native';
+
+// inside CatCard component, add:
+
+<Button title='Edit' onPress={() => navigation.navigate('EditCatScreen', { cat })} />
 
 const CatCard = ({ cat }) => {
     const navigation = useNavigation();
@@ -8,7 +13,7 @@ const CatCard = ({ cat }) => {
     return (
         <TouchableOpacity
             style={styles.container}
-            onPress={() => navigation.navigate('CatDetailScreen', { catId: cat.id })}
+            onPress={() => navigation.navigate('CatDetailScreen', { cat })}
         >
             <Text style={styles.title}>{cat.name}</Text>
             {cat.image && <Image source={{ uri: cat.image }} style={styles.image} />}
