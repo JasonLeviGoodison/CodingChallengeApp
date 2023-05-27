@@ -2,9 +2,6 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
-// inside CatCard component, add:
-
 <Button title='Edit' onPress={() => navigation.navigate('EditCatScreen', { cat })} />
 
 const CatCard = ({ cat }) => {
