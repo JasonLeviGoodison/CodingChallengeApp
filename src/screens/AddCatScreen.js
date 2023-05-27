@@ -6,7 +6,7 @@ import { addCat } from '../redux/catActions';
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
 
-const AddCatScreen = () => {
+const AddCatScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [breed, setBreed] = useState('');
@@ -32,6 +32,7 @@ const AddCatScreen = () => {
         setBreed('');
         setDescription('');
         setImage(null);
+        navigation.navigate('CatListScreen');
     }
 
     return (

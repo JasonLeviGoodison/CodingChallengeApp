@@ -4,7 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { useDispatch } from 'react-redux';
 import { editCat } from '../redux/catActions';
 
-const EditCatScreen = ({ route }) => {
+const EditCatScreen = ({ route, navigation }) => {
     const dispatch = useDispatch();
     const { cat } = route.params;
     const [name, setName] = useState(cat.name);
@@ -27,6 +27,7 @@ const EditCatScreen = ({ route }) => {
 
     const submitForm = () => {
         dispatch(editCat({ id: cat.id, name, breed, description, image }));
+        navigation.popToTop(); 
     }
 
     return (

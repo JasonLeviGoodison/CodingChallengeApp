@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, FlatList, StyleSheet, Button } from 'react-native';
+import { View, FlatList, StyleSheet, Text } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import CatCard from '../components/CatCard';
 import { removeCat } from '../redux/catActions';
+import { Button } from 'react-native-elements';
 
 const CatListScreen = ({ navigation }) => {
     const cats = useSelector(state => state.cats);
@@ -10,9 +11,16 @@ const CatListScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.buttonContainer}>
-                <Button title='Home' onPress={() => navigation.navigate('CatListScreen')} />
-            </View>
+            {cats.length === 0 && (
+                <View style={styles.introContainer}>
+                    <Text style={styles.welcomeText}>Welcome!</Text>
+                    <Button
+                        title='Add Your Cats!'
+                        onPress={() => navigation.navigate('AddCatScreen')}
+                        buttonStyle={styles.addButton}
+                    />
+                </View>
+            )}
 
             <FlatList
                 data={cats}
@@ -24,12 +32,18 @@ const CatListScreen = ({ navigation }) => {
                     </View>
                 )}
             />
-            <View style={styles.buttonContainer}>
-                <Button title='Add Cat' onPress={() => navigation.navigate('AddCatScreen')} />
-            </View>
+
+            {cats.length > 0 && (
+                <View style={styles.footerContainer}>
+                    <Button
+                        title='Add Another Cat'
+                        onPress={() => navigation.navigate('AddCatScreen')}
+                        buttonStyle={styles.addButton}
+                    />
+                </View>
+            )}
         </View>
     );
-
 };
 
 const styles = StyleSheet.create({
@@ -38,15 +52,27 @@ const styles = StyleSheet.create({
         padding: 20,
         backgroundColor: '#c0def3',
     },
-    buttonContainer: {
-        backgroundColor: 'white',
-        padding: 20,
-        borderRadius: 20,
-        marginBottom: 20,
-        width: '80%',
+    introContainer: {
+        flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
+    },
+    footerContainer: {
+        marginBottom: 20,
+    },
+    welcomeText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#000',
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    addButton: {
+        borderRadius: 20,
+        width: '80%',
         alignSelf: 'center',
-    }
+        backgroundColor: '#ffab40',
+    },
 });
 
 export default CatListScreen;

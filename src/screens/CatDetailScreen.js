@@ -1,11 +1,19 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Button } from 'react-native';
 
-const CatDetailScreen = ({ route }) => {
+const CatDetailScreen = ({ route, navigation }) => {
     const { cat } = route.params;
 
     return (
         <View style={styles.container}>
+            <Button
+                title="Edit"
+                onPress={() =>
+                    navigation.navigate('EditCatScreen', {
+                        cat: cat,
+                    })
+                }
+            />
             <Image style={styles.image} source={{ uri: cat.image }} />
             <View style={styles.detailsContainer}>
                 <Text style={styles.name}>{cat.name}</Text>
