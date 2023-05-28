@@ -10,9 +10,7 @@ This application is a simple yet powerful tool for managing and organizing your 
 
 - Edit a cat: If you need to update your cat's data, the application provides an easy way to do it.
 
-- View a cat: You can view your cat's data by simply clicking on the cat's card.
-
-- Animated cat: The application features an animated cat that crawls around the screen.
+- View a cat: You can view your cat's data by simply clicking on the cat's card. 
 
 ## Installation
 
