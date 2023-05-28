@@ -1,75 +1,56 @@
-## Instructions
+# Cat Manager App
 
-### Build your app
+This application is a simple yet powerful tool for managing and organizing your cats. It allows you to add, delete, view and edit your cat's data easily. The application is built using React Native, Redux, and React Navigation libraries.
 
-You have 1 week to complete the challenge.
+## Features
 
-Implementation and design will be evaluated.
+- Add a cat: This feature allows users to add a cat to their list. You can add the cat's name, breed, description, and image.
 
+- Delete a cat: Users can remove a cat from their list with just a click.
 
-### Submit your challenge
+- Edit a cat: If you need to update your cat's data, the application provides an easy way to do it.
 
-Follow these instructions to submit your challenge.
+- View a cat: You can view your cat's data by simply clicking on the cat's card.
 
-- Fork this Repository
-- Setup your Development Environment
-- Write your Code
-- Create a PR off of your forked repo
-- Send me the PR so I can review it :)
+- Animated cat: The application features an animated cat that crawls around the screen.
 
+## Installation
 
-### Impress us with your skills
-Challenge:
+To install and run this application, you will need Node.js installed on your computer. You will also need to install Expo CLI by running `npm install -g expo-cli` (or `yarn global add expo-cli` if you use Yarn). After you clone the repository, navigate to the project's directory and run `npm install` (or `yarn install`) to install all the dependencies.
 
-Jack owns so many cats that he can't keep track of all of them. He needs some way to keep track of all of his cats - almost like a Pokédex for cats.
+## Running the app
 
-### Requirements
-Your app should be able to complete the following tasks:
+To start the application, run `npm start` (or `yarn start`) from the project's directory. This will start the development server, and you can now open the app on your device or emulator.
 
-- Add a new Cat (Name, Breed, Description, or anything else you think would be important)
-- Remove Cats
-- Edit Cats
-- List all of his Cats
-- Persist data using React Contexts or Redux
+## Tech Stack
 
-### Grading
-The grading of the app will be based off of three criteria:
+- React Native: A JavaScript library for building user interfaces, specifically for mobile platforms.
 
-- 30% - UI and UX
-- 40% - Overall Design and Structure
-- 30% - Data Management and Store
+- Redux: A predictable state container for JavaScript apps.
 
----
+- React Navigation: Routing and navigation for your React Native apps.
 
-## Set up your development environment:
+- Expo: An open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
 
-If you have any issues following this README, try this resource: https://docs.expo.dev/get-started/create-a-project/
+## Dependencies
 
-Firstly, Fork this repo
+Here are the main dependencies for the application:
 
-### start development server
+- "@react-navigation/native"
+- "@react-navigation/stack"
+- "@reduxjs/toolkit"
+- "expo"
+- "expo-image-picker"
+- "expo-status-bar"
+- "react"
+- "react-native"
+- "react-native-elements"
+- "react-native-gesture-handler"
+- "react-native-get-random-values"
+- "react-native-reanimated"
+- "react-native-safe-area-context"
+- "react-redux"
+- "redux"
+- "uuid"
 
-Notes on installing the Expo CLI: https://docs.expo.dev/more/expo-cli/
-
-To run:
-
-`npx expo start`
-
-This should create a window like this:
-
-<img width="500" alt="Screenshot 2023-05-16 at 10 13 11 AM" src="https://github.com/JasonLeviGoodison/CodingChallengeApp/assets/20760528/e24a44ff-f3b9-4bab-a1e5-ecd02f31ec7a">
-
-
-You have 2 options for developing:
-
-- if you have your mobile phone, you can install the Expo Go app and scan the QR code that shows up.
-  This is the easiest way to get started fast.
-  
-- If you want to run on an emulator
-
-   - if on mac, you can either install simulator (ios) or android studio. I recommend simulator:
-  the shortcut to launch the app on the simulator after running expo start is : i
-
-   - if on Windows, you must install android studio, open Virtual Device manager, launch an android emulator.
- The shortcut to launch the app on the simulator after running expo start is : i
----
+Please refer to the `package.json` file for the specific version of these dependencies.
