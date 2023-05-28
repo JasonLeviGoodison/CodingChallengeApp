@@ -22,7 +22,7 @@ export default function App() {
                     <Stack.Screen
                         name="CatDetailScreen"
                         component={CatDetailScreen}
-                        options={({ navigation }) => ({ // options is a function that returns an object
+                        options={({ navigation }) => ({
                             headerLeft: () => (
                                 <Button
                                     title="Back"
