@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Button } from 'react-native';  // Correct import for Button
+import { Button } from 'react-native';
 
 import store from './index';
 import CatListScreen from './src/screens/CatListScreen';
